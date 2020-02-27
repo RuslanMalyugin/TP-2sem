@@ -1,4 +1,5 @@
 #!/bin/bash
-
-find $1 -name "*.$2" | tar -cf $4 -P -T -
+mkdir $3
+find $1 -name "*.$2" -exec cp --parents {} $3 \;
+tar -zcf $4 $3
 echo done
